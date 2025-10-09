@@ -7,7 +7,7 @@ const app = express();
 // publicフォルダを公開
 app.use(express.static('public'));
 
-app.get('/myget', (req, res) => {
+app.get('/sqltest', (req, res) => {
   // DBファイルの絶対パスを取得
   const dbPath = path.join(__dirname, 'test.db');
   const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {

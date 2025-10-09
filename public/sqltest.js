@@ -7,7 +7,7 @@
   });
 
   try {
-    const res = await fetch('/myget');
+    const res = await fetch('/sqltest');
     if (!res.ok) throw new Error('APIエラー: ' + res.status);
     const data = await res.json();
     if (!data.users || data.users.length === 0) {
