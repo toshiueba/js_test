@@ -1,0 +1,56 @@
+body {
+  font-family: 'Segoe UI', Roboto, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  background: #ffffff;
+  color: #222;
+  padding: 24px;
+}
+
+:root {
+  /* Canvas色の定義をここで一元管理 */
+  --canvas-bg: #f0f0f0; /* drawClock() の塗りつぶし色（薄いグレー） */
+  --canvas-gradient-start: #f8f8f8; /* CSS 背景グラデーション開始 */
+  --canvas-gradient-end: #efefef;   /* CSS 背景グラデーション終了 */
+  --stroke-fg: #555555; /* 円の線の色（濃いグレー） */
+  --stroke-width: 3px; /* 線幅 */
+  /* 時計の数字の色とフォントサイズ（ここで指定すればJS描画に反映されます） */
+  --clock-number-color: #222222;
+  --clock-number-font-size: 24px;
+  /* 針の色・幅（JS が参照します） */
+  --hour-hand-color: #111111;
+  --minute-hand-color: #111111;
+  --hour-hand-width: 6px;
+  --minute-hand-width: 4px;
+  --second-hand-color: #d9534f;
+  --second-hand-width: 2px;
+}
+
+h2 {
+  margin-bottom: 12px;
+}
+
+.canvasWrap {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin: 18px 0;
+}
+
+#clockCanvas {
+  background: linear-gradient(180deg, var(--canvas-gradient-start), var(--canvas-gradient-end));
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(3,60,20,0.08);
+}
+
+button {
+  background: #0b6623;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button#backBtn {
+  background: #666;
+  margin-left: 12px;
+}

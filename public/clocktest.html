@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Clock表示テスト</title>
+  <link rel="stylesheet" href="./clocktest.css">
 </head>
 <body>
   <h2>時計を表示してみる</h2>
-
+  <button onclick="drawClock()">draw Clock</button>
+  <div class="canvasWrap">
+    <canvas id="clockCanvas" width="400" height="400" aria-label="clock canvas"></canvas>
+  </div>
   <button id="backBtn">戻る</button>
   <script src="./clocktest.js"></script>
 </body>
