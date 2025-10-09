@@ -4,14 +4,39 @@
   <meta charset="UTF-8">
   <title>Clock表示テスト</title>
   <link rel="stylesheet" href="./clocktest.css">
+  <!-- highlight.js styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
 </head>
 <body>
-  <h2>時計を表示してみる</h2>
-  <button onclick="drawClock()">draw Clock</button>
-  <div class="canvasWrap">
-    <canvas id="clockCanvas" width="400" height="400" aria-label="clock canvas"></canvas>
+  <div class="layout">
+    <div class="left">
+      <h2>時計を表示してみる</h2>
+      <button onclick="drawClock()">draw Clock</button>
+      <div class="canvasWrap">
+        <canvas id="clockCanvas" width="400" height="400" aria-label="clock canvas"></canvas>
+      </div>
+      <button id="backBtn">戻る</button>
+    </div>
+
+    <div class="right">
+      <div class="codePanel">
+        <h3>Source files</h3>
+        <div class="fileBlock">
+          <h4>clocktest.html</h4>
+          <pre class="code"><code id="src-html" class="language-html"></code></pre>
+        </div>
+        <div class="fileBlock">
+          <h4>clocktest.js</h4>
+          <pre class="code"><code id="src-js" class="language-javascript"></code></pre>
+        </div>
+        <div class="fileBlock">
+          <h4>clocktest.css</h4>
+          <pre class="code"><code id="src-css" class="language-css"></code></pre>
+        </div>
+      </div>
+    </div>
   </div>
-  <button id="backBtn">戻る</button>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
   <script src="./clocktest.js"></script>
 </body>
 </html>

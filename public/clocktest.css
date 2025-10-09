@@ -38,6 +38,48 @@ h2 {
   margin: 18px 0;
 }
 
+.layout {
+  display: flex;
+  gap: 24px;
+}
+.left {
+  flex: 0 0 420px; /* canvas area width */
+}
+.right {
+  flex: 1 1 auto;
+}
+.codePanel {
+  background: #fafafa;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  max-height: 600px;
+  overflow: hidden;
+  display: flex;
+  gap: 12px;
+}
+.fileBlock {
+  /* make each file window narrower: ~66% of the previous one-third column */
+  flex: 0 0 calc(33.333% * 0.66);
+  min-width: 0; /* allow overflow inside flex item */
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto; /* horizontal scrollbar shown on this outer block */
+}
+.code {
+  background: #272822;
+  color: #f8f8f2;
+  padding: 10px;
+  border-radius: 6px;
+  white-space: pre; /* prevent wrapping so horizontal scrollbar appears */
+  overflow-y: auto; /* vertical scroll inside code */
+  overflow-x: visible; /* let outer .fileBlock show horizontal scrollbar */
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 12px;
+  max-height: 520px;
+}
+.fileBlock h4 { margin: 8px 0 4px; }
+
 #clockCanvas {
   background: linear-gradient(180deg, var(--canvas-gradient-start), var(--canvas-gradient-end));
   border-radius: 8px;

@@ -142,3 +142,32 @@ function drawClock(){
         // update every second
         window._clockInterval = setInterval(drawHands, 1000);
 }
+
+// load source files and display in right panel
+async function loadSources(){
+    const esc = (s) => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    try{
+        const [htmlRes, jsRes, cssRes] = await Promise.all([
+            fetch('clocktest.html'),
+            fetch('clocktest.js'),
+            fetch('clocktest.css')
+        ]);
+        const [htmlTxt, jsTxt, cssTxt] = await Promise.all([htmlRes.text(), jsRes.text(), cssRes.text()]);
+        const codeHtml = document.getElementById('src-html');
+        const codeJs = document.getElementById('src-js');
+        const codeCss = document.getElementById('src-css');
+        codeHtml.textContent = htmlTxt;
+        codeJs.textContent = jsTxt;
+        codeCss.textContent = cssTxt;
+        // highlight
+        if (window.hljs) {
+          hljs.highlightElement(codeHtml);
+          hljs.highlightElement(codeJs);
+          hljs.highlightElement(codeCss);
+        }
+    }catch(e){
+        console.error('source load failed', e);
+    }
+}
+
+window.addEventListener('load', loadSources);
