@@ -22,6 +22,9 @@ body {
   --minute-hand-width: 4px;
   --second-hand-color: #d9534f;
   --second-hand-width: 2px;
+  /* デジタル表示の色とフォントサイズ（canvas 内に描画） */
+  --digital-color: #222222;
+  --digital-font-size: 20px;
 }
 
 h2 {

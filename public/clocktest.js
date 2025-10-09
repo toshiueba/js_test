@@ -13,8 +13,9 @@ function drawClock(){
         }
         const ctx = canvas.getContext('2d');
         // prepare geometry and style
+        const yOffset = -20; // 上に20px移動
         const centerX = canvas.width / 2;
-        const centerY = canvas.height / 2;
+        const centerY = canvas.height / 2 + yOffset;
         const radius = Math.min(canvas.width, canvas.height) * 0.35; // 少し大きめ
         const style = getComputedStyle(document.documentElement);
 
@@ -109,6 +110,25 @@ function drawClock(){
             ctx.fillStyle = hourHandColor.trim();
             ctx.arc(centerX, centerY, Math.max(4, hourHandWidth / 1.5), 0, Math.PI * 2);
             ctx.fill();
+
+            // draw digital time inside canvas below the clock
+            const y = now.getFullYear();
+            const m = now.getMonth() + 1; // no zero pad
+            const d = now.getDate(); // no zero pad
+            const hh = String(now.getHours()).padStart(2, '0');
+            const mm = String(minutes).padStart(2, '0');
+            const ss = String(seconds).padStart(2, '0');
+            const weekdays = ['日','月','火','水','木','金','土'];
+            const w = weekdays[now.getDay()];
+            const digitalText = `${y}/${m}/${d}（${w}） ${hh}:${mm}:${ss}`;
+            const digitalColor = style.getPropertyValue('--digital-color') || '#222222';
+            const digitalFontSize = parseInt(style.getPropertyValue('--digital-font-size')) || 16;
+            ctx.fillStyle = digitalColor.trim();
+            ctx.font = `${digitalFontSize}px sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'top';
+            const textY = centerY + radius + 30; // 10px below circle
+            ctx.fillText(digitalText, centerX, textY);
         }
 
         // start: render once and set interval to update hands every second
