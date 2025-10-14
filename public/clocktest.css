@@ -53,14 +53,14 @@ h2 {
   padding: 12px;
   border-radius: 8px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-  max-height: 600px;
+  /* max-height: 600px; */
+  max-height: 750px;
   overflow: hidden;
   display: flex;
   gap: 12px;
 }
 .fileBlock {
   /* make each file window narrower: ~66% of the previous one-third column */
-  /* flex: 0 0 calc(33.333% * 0.66); */
   flex: 0 0 calc(30%);
   min-width: 0; /* allow overflow inside flex item */
   display: flex;
@@ -76,7 +76,8 @@ h2 {
   overflow: auto; /* enable scrollbars when content overflows */
   font-family: Consolas, 'Courier New', monospace;
   font-size: 12px;
-  max-height: 520px;
+  /* max-height: 520px; */
+  max-height: 750px;
 }
 .fileBlock h4 { margin: 8px 0 4px; }
 
