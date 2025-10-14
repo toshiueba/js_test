@@ -1,0 +1,14 @@
+body { 
+    margin: 0; 
+    overflow: hidden;
+    background: #111;
+}
+canvas { 
+    display: block; 
+}
+#cameraPos {
+  white-space: pre; /* \n を改行として扱う */
+}
+#backBtn {
+  margin-left: 20px;
+}
