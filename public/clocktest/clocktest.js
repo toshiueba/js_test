@@ -1,7 +1,7 @@
 const backBtn = document.getElementById('backBtn');
 if (backBtn) {
     backBtn.addEventListener('click', () => {
-        location.href = 'index.html';
+        location.href = '../index.html';
     });
 }
 

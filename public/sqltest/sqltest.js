@@ -3,7 +3,7 @@ async function fetchData(){
     const backBtn = document.getElementById('backBtn');
 
     backBtn.addEventListener('click', () => {
-    location.href = 'index.html';
+    location.href = '../index.html';
     });
 
     try {
