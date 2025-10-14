@@ -60,20 +60,20 @@ h2 {
 }
 .fileBlock {
   /* make each file window narrower: ~66% of the previous one-third column */
-  flex: 0 0 calc(33.333% * 0.66);
+  /* flex: 0 0 calc(33.333% * 0.66); */
+  flex: 0 0 calc(30%);
   min-width: 0; /* allow overflow inside flex item */
   display: flex;
   flex-direction: column;
-  overflow-x: auto; /* horizontal scrollbar shown on this outer block */
+  overflow: hidden;
 }
 .code {
   background: #272822;
   color: #f8f8f2;
   padding: 10px;
   border-radius: 6px;
-  white-space: pre; /* prevent wrapping so horizontal scrollbar appears */
-  overflow-y: auto; /* vertical scroll inside code */
-  overflow-x: visible; /* let outer .fileBlock show horizontal scrollbar */
+  white-space: pre-wrap;
+  overflow: auto; /* enable scrollbars when content overflows */
   font-family: Consolas, 'Courier New', monospace;
   font-size: 12px;
   max-height: 520px;

@@ -170,4 +170,5 @@ async function loadSources(){
     }
 }
 
+drawClock();
 window.addEventListener('load', loadSources);
