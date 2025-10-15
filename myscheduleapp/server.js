@@ -11,21 +11,20 @@ app.use(express.static('public'));
 // target user の全てのスケジュールを返す（テスト用）
 app.get('/api/user_all_schedule', async (req, res) => {
 
-  const dbPath = path.join(__dirname, 'schedule.db');
-  const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {
-    if (err) {
-      return res.status(500).json({ error: 'DB接続エラー: ' + err.message });
-    }
-  });
-
   try {
+    const dbPath = path.join(__dirname, 'schedule.db');
+    const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {
+      if (err) {
+        return res.status(500).json({ error: 'DB接続エラー: ' + err.message });
+      }
+    });
 
     db.all('SELECT id, title, start_time, end_time FROM schedule', (err, rows) => {
       db.close();
       if (err) {
         return res.status(500).json({ error: 'DBクエリエラー: ' + err.message });
       }
-      res.json({ users: rows });
+      res.json(rows);
     });
   } catch (err) {
     console.error(err);
@@ -70,6 +69,6 @@ app.get('/api/user_month_schedule', async (req, res) => {
 });
 */
 
-app.listen(port, () => {
+app.listen(3000, () => {
   console.log(`http://localhost:3000 でサーバー起動中`);
 });

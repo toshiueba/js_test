@@ -13,10 +13,10 @@ async function fetchData(){
         let html = "<table><tr><th>ID</th><th>Title</th><th>Start Time</th><th>Flag</th></tr>";
         data.forEach(row => {
         html += `<tr>
-                    <td>${row.schedule_id}</td>
+                    <td>${row.id}</td>
                     <td>${row.title}</td>
-                    <td>${formatDate(row.start_time)}</td>
-                    <td>${formatDate(row.start_time)}</td>
+                    <td>${row.start_time}</td>
+                    <td>${row.start_time}</td>
                 </tr>`;
         });
         html += "</table>";
