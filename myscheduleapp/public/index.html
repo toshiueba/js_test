@@ -2,13 +2,68 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>My Schedule App</title>
+  <title>最初のページ</title>
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/color.css">
+  <link rel="stylesheet" href="./styles/modal.css">
 </head>
 <body>
-  <h2>スケジュール一覧</h2>
-  <button onclick="fetchData()">fetchData</button>
-  <div id="resultArea"></div>
-  <button id="backBtn">戻る</button>
+  <div class="container">
+    <!-- 左カラム -->
+    <div class="leftCol" id="CalofThisMonth">
+      <div style="display:flex; align-items: center; gap: 10px;">
+        <div id="ymDispArea" ></div>
+        <div class="arrowButton" onclick="goPrevMonth()" style="cursor: pointer;">＜</div>
+        <div style="display:flex; align-items: center;">
+          <img src="./images/dp30.png" onclick="monthChageClick()" style="cursor: pointer;" />
+          <input type="month" id="monthPicker" style="opacity: 0; width:0; position:absolute;"></input>
+        </div>
+        <div class="arrowButton" onclick="goNextMonth()" style="cursor: pointer;">＞</div>
+      </div>
+      <table id="monthTable">  
+        <!-- 実際の行数は、JSで計算して埋める -->
+      </table>
+    </div>
+
+    <!-- 右カラム -->
+    <div class="rightCol">
+      <button onclick="startTest()">テスト開始</button>
+      <button onclick="fetchSchedule()">Select</button>
+      <!-- <button onclick="fetchMonthSchedule()">SelectMonthSched.</button> -->
+      <!-- <button id="addButton" onclick="addSchedule(3)">Add</button> -->
+      <h2>スケジュール一覧</h2>
+      <div id="result"></div>
+      <div id="debugArea"></div>
+    </div>
+  </div>
+
+    <!-- 新規スケジュール登録ダイヤログ　Modal -->
+  <div id="inputModal" class="modal">
+    <div class="modal-content">
+      <h3>新規スケジュール登録</h3>
+      <hr>
+      <div id="newSchedTargetDate"></div>
+      <br>
+      <div class="mini-container">
+        <input type="text" id="newTitle" placeholder="タイトル">
+        <input type="checkbox" id="allDay">
+        <div style="font-size: 1.1em;">終日</div>
+      </div>
+      <br>
+      <!-- step=300で5分刻みにしたいが今のブラウザでは意図通りには動かない、ブラウザによっては動くかもしれない -->
+      開始<input type="time" id="newStartTime" step="300">
+      終了<input type="time" id="newEndTime" step="300">
+      <br><br>
+      <button onclick="submitInput()">OK</button>
+      <button onclick="closeModal()">キャンセル</button>
+    </div>
+  </div>
+
+  <!-- scriptは、/body の直前に書くのが主流らしい -->
+  <!-- <script src="./scripts/addSchedule.js"></script> -->
   <script src="./scripts/select.js"></script>
+  <script src="./scripts/createCalender.js"></script>
+  <script src="./scripts/script.js"></script>
 </body>
 </html>
+

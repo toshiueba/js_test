@@ -1,0 +1,21 @@
+:root{
+    /* char color */
+    --th-fg: #666666;
+    --weekday-fg:#474747;
+    --sunday-fg: #cc4444;
+    /* --sutaday-fg: #4444dd; 使ってない*/
+
+    /* background color */
+    --container-bg: #f5f5f5;
+    --th-bg: #f0f0f0;
+    --outday-bg: #dfdfdf;
+    --sunday-bg: #ffe9ea;
+    --sunday-lighter-bg: #ffedf0;
+    --today-char-bg: #C0EAFF;
+    /* --sutaday-bg: #e8f3fd; 使ってない*/
+
+    /* border color */
+    --border-thick: #ccc;
+    --table-border: #bbb;
+
+}

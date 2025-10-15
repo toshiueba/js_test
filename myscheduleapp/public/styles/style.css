@@ -1,0 +1,97 @@
+/* 全体レイアウトを横並び */
+.container {
+  display: flex;
+  height: 100vh; /* 画面全体を占有 */
+}
+
+/* 左カラム */
+.leftCol {
+  width: 75%;
+  padding: 20px;
+  background-color: var(--container-bg);
+  border-right: 1px solid var(--border-thick);
+}
+
+/* 右カラム */
+.rightCol {
+  width: 25%;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* 表 */
+#monthTable{
+  border-collapse: collapse; /* ー重線 */
+  margin-top: 10px;
+  width: 100%;
+  height:95%;
+}
+#monthTable thead tr {
+  background-color: var(--th-bg);
+}
+#monthTable thead th {
+  padding: 0;
+  font-weight: 250;
+  font-size: 1.2em;
+  border: 1px solid var(--table-border);
+  color: var(--th-fg);
+  line-height: 0.28;
+}
+#monthTable td {
+  padding: 0;
+  vertical-align: top;
+}
+
+td {
+  border: 1px solid var(--table-border);
+}
+
+#ymDispArea {
+  font-size: x-large;  
+}
+
+/* 日にちのセル内 */
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "left right"
+    "bottom bottom";
+  grid-template-columns: 1fr 3fr;
+  gap: 2px;
+  /* border: 1px solid #ccc; デバッグ用 */
+}
+.left   { 
+  grid-area: left;
+  color: var(--th-fg);
+  font-size: 1.3em;
+  padding: 2px 3px 2px 8px;
+}
+.right  { 
+  grid-area: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 1em;
+}
+.bottom { 
+  grid-area: bottom; 
+}
+table {
+  margin-top: 1em;
+}
+
+#ymDispArea{
+  margin-right: 10px;
+}
+
+.arrowButton{
+  height: 1em;
+  padding: 0px 5px 0px 5px;
+  margin: 0px 5px 0px 5px;
+  border: solid 1px var(--table-border);
+  font-size: x-large;
+  font-weight: bold;
+  line-height: 1em;
+  border-radius: 30%;
+  background-color: var(--th-bg);
+}
