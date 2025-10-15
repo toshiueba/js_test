@@ -49,6 +49,7 @@ async function fetchMonthSchedule() {
             // DBでは、UTCだが、formatDateすると、なぜかTokyo時間になる
             // Geminiでは、utcDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' });をやれと言われたが、formatDateでいけている。
             // day_str = formatDate(row.start_time).substring(8,10);
+            // 上は Postgresqlの事情、sqliteには日付型がなく、文字列なので、そのままでよい
             day_str = row.start_time.substring(8,10);
             // 日のindexは、日付の数値 -1
             d_idx = parseInt(day_str,10) - 1;
