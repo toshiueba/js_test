@@ -1,97 +1,118 @@
 /* 全体レイアウトを横並び */
 .container {
-  display: flex;
-  height: 100vh; /* 画面全体を占有 */
+    display: flex;
+    height: 100vh; /* 画面全体を占有 */
+}
+
+/* 右カラムが非表示の時のスタイル */
+.container.right-col-hidden .leftCol {
+    width: 100%; /* 左カラムを全幅に */
+    border-right: none; /* ボーダーを削除 */
+}
+
+.container.right-col-hidden .rightCol {
+    display: none; /* 右カラムを非表示に */
 }
 
 /* 左カラム */
 .leftCol {
-  width: 75%;
-  padding: 20px;
-  background-color: var(--container-bg);
-  border-right: 1px solid var(--border-thick);
+    width: 75%;
+    padding: 20px;
+    background-color: var(--container-bg);
+    border-right: 1px solid var(--border-thick);
+    position: relative; /* 子要素の絶対配置の基準にする */
+}
+
+/* leftCol内のトグルボタンの配置 */
+#toggleRightColButton {
+    position: absolute;
+    top: 20px; /* leftColのpaddingに合わせて調整 */
+    right: 0px;
+    z-index: 10; /* 他の要素の上に表示 */
+    border: 0px;
+    font-size: 1.1em;
 }
 
 /* 右カラム */
 .rightCol {
-  width: 25%;
-  padding: 20px;
-  overflow-y: auto;
+    width: 25%;
+    padding: 20px;
+    overflow-y: auto;
 }
 
 /* 表 */
-#monthTable{
-  border-collapse: collapse; /* ー重線 */
-  margin-top: 10px;
-  width: 100%;
-  height:95%;
+#monthTable {
+    border-collapse: collapse; /* ー重線 */
+    margin-top: 10px;
+    width: 100%;
+    height: 95%;
 }
 #monthTable thead tr {
-  background-color: var(--th-bg);
+    background-color: var(--th-bg);
 }
 #monthTable thead th {
-  padding: 0;
-  font-weight: 250;
-  font-size: 1.2em;
-  border: 1px solid var(--table-border);
-  color: var(--th-fg);
-  line-height: 0.28;
+    padding: 0;
+    font-weight: 250;
+    font-size: 1.2em;
+    border: 1px solid var(--table-border);
+    color: var(--th-fg);
+    line-height: 0.28;
 }
 #monthTable td {
-  padding: 0;
-  vertical-align: top;
+    padding: 0;
+    vertical-align: top;
 }
 
 td {
-  border: 1px solid var(--table-border);
+    border: 1px solid var(--table-border);
 }
 
 #ymDispArea {
-  font-size: x-large;  
+    font-size: x-large;
 }
 
 /* 日にちのセル内 */
 .grid-container {
-  display: grid;
-  grid-template-areas:
-    "left right"
-    "bottom bottom";
-  grid-template-columns: 1fr 3fr;
-  gap: 2px;
-  /* border: 1px solid #ccc; デバッグ用 */
+    display: grid;
+    grid-template-areas:
+        "left right"
+        "bottom bottom";
+    grid-template-columns: 1fr 3fr;
+    gap: 2px;
+    /* border: 1px solid #ccc; デバッグ用 */
 }
-.left   { 
-  grid-area: left;
-  color: var(--th-fg);
-  font-size: 1.3em;
-  padding: 2px 3px 2px 8px;
+.left {
+    grid-area: left;
+    color: var(--th-fg);
+    font-size: 1.3em;
+    padding: 2px 3px 2px 8px;
 }
-.right  { 
-  grid-area: right;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 1em;
+.right {
+    grid-area: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 1em;
 }
-.bottom { 
-  grid-area: bottom; 
+.bottom {
+    grid-area: bottom;
 }
 table {
-  margin-top: 1em;
+    margin-top: 1em;
 }
 
-#ymDispArea{
-  margin-right: 10px;
+#ymDispArea {
+    margin-right: 10px;
 }
 
-.arrowButton{
-  height: 1em;
-  padding: 0px 5px 0px 5px;
-  margin: 0px 5px 0px 5px;
-  border: solid 1px var(--table-border);
-  font-size: x-large;
-  font-weight: bold;
-  line-height: 1em;
-  border-radius: 30%;
-  background-color: var(--th-bg);
+.arrowButton {
+    height: 1em;
+    padding: 0px 5px 0px 5px;
+    margin: 0px 5px 0px 5px;
+    border: solid 1px var(--table-border);
+    font-size: x-large;
+    font-weight: bold;
+    line-height: 1em;
+    border-radius: 30%;
+    background-color: var(--th-bg);
 }

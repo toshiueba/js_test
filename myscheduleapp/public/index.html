@@ -19,12 +19,13 @@
           <input type="month" id="monthPicker" style="opacity: 0; width:0; position:absolute;"></input>
         </div>
         <div class="arrowButton" onclick="goNextMonth()" style="cursor: pointer;">＞</div>
+        <!-- 右カラムを隠したときに表示されるトグルボタン -->
+        <button id="toggleRightColButton" onclick="toggleRightCol()">&gt;&gt;</button>
       </div>
-      <table id="monthTable">  
+      <table id="monthTable">
         <!-- 実際の行数は、JSで計算して埋める -->
       </table>
     </div>
-
     <!-- 右カラム -->
     <div class="rightCol">
       <button onclick="startTest()">テスト開始</button>
@@ -66,4 +67,3 @@
   <script src="./scripts/script.js"></script>
 </body>
 </html>
-
